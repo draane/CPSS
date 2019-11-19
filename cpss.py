@@ -1,13 +1,17 @@
 import git
 import os
-import time
 from scanners.github import get_repo_list
 
 CLONE_PATH = "./temp/"
 
 
 def main():
-    repo_list = get_repo_list(1)
+    ignore_list = []
+    f = open("ignore_list.txt", "r")
+    for line in f:
+        ignore_list.append(line.strip())
+
+    repo_list = [repo for repo in get_repo_list(1) if repo['full_name'] not in ignore_list]
     for repo in repo_list:
         print("cloning:", repo['full_name'])
         clone_url = repo['clone_url']
