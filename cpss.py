@@ -11,7 +11,7 @@ def main():
     for line in f:
         ignore_list.append(line.strip())
 
-    repo_list = [repo for repo in get_repo_list(1) if repo['full_name'] not in ignore_list]
+    repo_list = [repo for repo in get_repo_list() if repo['full_name'] not in ignore_list]
     for repo in repo_list:
         print("cloning:", repo['full_name'])
         clone_url = repo['clone_url']
