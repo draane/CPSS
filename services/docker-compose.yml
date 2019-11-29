@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    hostname: rabbit
+    ports:
+      - 15672:15672
+      - 5672:5672
+    volumes:
+      - /home/draane/.docker-data/CPSS/rabbitmq/data:/var/lib/rabbitmq
