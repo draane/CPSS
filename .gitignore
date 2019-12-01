@@ -1,3 +1,5 @@
 .idea
-reports
+reports/*
+clean_reports/*
 *.pyc
+ignore_list.txt
